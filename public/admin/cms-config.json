@@ -1,0 +1,883 @@
+{
+  "load_config_file": false,
+  "backend": {
+    "name": "github",
+    "repo": "lic029511-bot/lic029511-bot.github.io",
+    "branch": "main",
+    "auth_endpoint": "auth"
+  },
+  "site_url": "https://lic029511-bot.github.io",
+  "display_url": "https://lic029511-bot.github.io",
+  "media_folder": "public/media",
+  "public_folder": "/media",
+  "publish_mode": "editorial_workflow",
+  "collections": [
+    {
+      "name": "settings",
+      "label": "网站设置",
+      "files": [
+        {
+          "name": "site",
+          "label": "实验室信息",
+          "file": "content/site.json",
+          "fields": [
+            {
+              "name": "title",
+              "label": "名称 / 标题",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "zh",
+                  "label": "中文",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "en",
+                  "label": "English",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "affiliation",
+              "label": "所属学校 / 机构",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "zh",
+                  "label": "中文",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "en",
+                  "label": "English",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "tagline",
+              "label": "首页主标题",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "zh",
+                  "label": "中文",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "en",
+                  "label": "English",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "summary",
+              "label": "摘要 / 简介",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "zh",
+                  "label": "中文",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "en",
+                  "label": "English",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "body",
+              "label": "详细内容",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "zh",
+                  "label": "中文",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "en",
+                  "label": "English",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "focus",
+              "label": "研究关键词",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "zh",
+                  "label": "中文",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "en",
+                  "label": "English",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "join",
+              "label": "招生与加入说明",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "zh",
+                  "label": "中文",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "name": "en",
+                  "label": "English",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "address",
+              "label": "联系地址",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "zh",
+                  "label": "中文",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "name": "en",
+                  "label": "English",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "name": "email",
+              "label": "联系邮箱",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "image",
+              "label": "图片",
+              "widget": "image",
+              "required": false
+            },
+            {
+              "name": "heroImage",
+              "label": "首页主图",
+              "widget": "image",
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "label": "研究项目",
+      "folder": "content/projects",
+      "create": true,
+      "format": "json",
+      "extension": "json",
+      "slug": "{{fields.id}}",
+      "identifier_field": "id",
+      "summary": "{{title.zh}} / {{title.en}}",
+      "fields": [
+        {
+          "name": "id",
+          "label": "标识（创建后请勿更改）",
+          "widget": "string",
+          "pattern": [
+            "^[a-zA-Z0-9_-]+$",
+            "仅使用字母、数字、下划线和短横线"
+          ]
+        },
+        {
+          "name": "position",
+          "label": "显示顺序",
+          "widget": "number",
+          "value_type": "int",
+          "default": 0,
+          "min": 0
+        },
+        {
+          "name": "title",
+          "label": "名称 / 标题",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "topic",
+          "label": "研究分组名称",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "summary",
+          "label": "摘要 / 简介",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "body",
+          "label": "详细内容",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "category",
+          "label": "分组标识",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "image",
+          "label": "图片",
+          "widget": "image",
+          "required": false
+        },
+        {
+          "name": "url",
+          "label": "网站 / 资源链接",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "paper",
+          "label": "论文 PDF",
+          "widget": "file",
+          "required": false
+        },
+        {
+          "name": "code",
+          "label": "代码链接",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "video",
+          "label": "视频链接",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "memberIds",
+          "label": "相关成员",
+          "widget": "relation",
+          "collection": "people",
+          "search_fields": [
+            "title.zh",
+            "title.en",
+            "id"
+          ],
+          "value_field": "id",
+          "display_fields": [
+            "title.zh",
+            "title.en"
+          ],
+          "multiple": true,
+          "required": false
+        },
+        {
+          "name": "paperIds",
+          "label": "相关论文",
+          "widget": "relation",
+          "collection": "publications",
+          "search_fields": [
+            "title.zh",
+            "title.en",
+            "id"
+          ],
+          "value_field": "id",
+          "display_fields": [
+            "title.zh",
+            "title.en"
+          ],
+          "multiple": true,
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "people",
+      "label": "团队成员",
+      "folder": "content/people",
+      "create": true,
+      "format": "json",
+      "extension": "json",
+      "slug": "{{fields.id}}",
+      "identifier_field": "id",
+      "summary": "{{title.zh}} / {{title.en}}",
+      "fields": [
+        {
+          "name": "id",
+          "label": "标识（创建后请勿更改）",
+          "widget": "string",
+          "pattern": [
+            "^[a-zA-Z0-9_-]+$",
+            "仅使用字母、数字、下划线和短横线"
+          ]
+        },
+        {
+          "name": "position",
+          "label": "显示顺序",
+          "widget": "number",
+          "value_type": "int",
+          "default": 0,
+          "min": 0
+        },
+        {
+          "name": "title",
+          "label": "名称 / 标题",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "summary",
+          "label": "摘要 / 简介",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "body",
+          "label": "详细内容",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "role",
+          "label": "身份",
+          "widget": "select",
+          "options": [
+            "faculty",
+            "postdoc",
+            "phd",
+            "masters",
+            "undergraduate",
+            "alumni"
+          ]
+        },
+        {
+          "name": "image",
+          "label": "图片",
+          "widget": "image",
+          "required": false
+        },
+        {
+          "name": "url",
+          "label": "网站 / 资源链接",
+          "widget": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "publications",
+      "label": "论文成果",
+      "folder": "content/publications",
+      "create": true,
+      "format": "json",
+      "extension": "json",
+      "slug": "{{fields.id}}",
+      "identifier_field": "id",
+      "summary": "{{title.zh}} / {{title.en}}",
+      "fields": [
+        {
+          "name": "id",
+          "label": "标识（创建后请勿更改）",
+          "widget": "string",
+          "pattern": [
+            "^[a-zA-Z0-9_-]+$",
+            "仅使用字母、数字、下划线和短横线"
+          ]
+        },
+        {
+          "name": "position",
+          "label": "显示顺序",
+          "widget": "number",
+          "value_type": "int",
+          "default": 0,
+          "min": 0
+        },
+        {
+          "name": "title",
+          "label": "名称 / 标题",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "summary",
+          "label": "摘要 / 简介",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "year",
+          "label": "发表年份",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "authors",
+          "label": "作者",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "venue",
+          "label": "会议 / 期刊",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "url",
+          "label": "网站 / 资源链接",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "paper",
+          "label": "论文 PDF",
+          "widget": "file",
+          "required": false
+        },
+        {
+          "name": "code",
+          "label": "代码链接",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "bibtex",
+          "label": "BibTeX",
+          "widget": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "news",
+      "label": "新闻动态",
+      "folder": "content/news",
+      "create": true,
+      "format": "json",
+      "extension": "json",
+      "slug": "{{fields.id}}",
+      "identifier_field": "id",
+      "summary": "{{title.zh}} / {{title.en}}",
+      "fields": [
+        {
+          "name": "id",
+          "label": "标识（创建后请勿更改）",
+          "widget": "string",
+          "pattern": [
+            "^[a-zA-Z0-9_-]+$",
+            "仅使用字母、数字、下划线和短横线"
+          ]
+        },
+        {
+          "name": "position",
+          "label": "显示顺序",
+          "widget": "number",
+          "value_type": "int",
+          "default": 0,
+          "min": 0
+        },
+        {
+          "name": "title",
+          "label": "名称 / 标题",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "summary",
+          "label": "摘要 / 简介",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "body",
+          "label": "详细内容",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "date",
+          "label": "日期（YYYY-MM-DD）",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "image",
+          "label": "图片",
+          "widget": "image",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "resources",
+      "label": "课程与资源",
+      "folder": "content/resources",
+      "create": true,
+      "format": "json",
+      "extension": "json",
+      "slug": "{{fields.id}}",
+      "identifier_field": "id",
+      "summary": "{{title.zh}} / {{title.en}}",
+      "fields": [
+        {
+          "name": "id",
+          "label": "标识（创建后请勿更改）",
+          "widget": "string",
+          "pattern": [
+            "^[a-zA-Z0-9_-]+$",
+            "仅使用字母、数字、下划线和短横线"
+          ]
+        },
+        {
+          "name": "position",
+          "label": "显示顺序",
+          "widget": "number",
+          "value_type": "int",
+          "default": 0,
+          "min": 0
+        },
+        {
+          "name": "title",
+          "label": "名称 / 标题",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "summary",
+          "label": "摘要 / 简介",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "category",
+          "label": "分类",
+          "widget": "select",
+          "options": [
+            "course",
+            "code",
+            "dataset"
+          ]
+        },
+        {
+          "name": "url",
+          "label": "网站 / 资源链接",
+          "widget": "string",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "events",
+      "label": "日历与讲座",
+      "folder": "content/events",
+      "create": true,
+      "format": "json",
+      "extension": "json",
+      "slug": "{{fields.id}}",
+      "identifier_field": "id",
+      "summary": "{{title.zh}} / {{title.en}}",
+      "fields": [
+        {
+          "name": "id",
+          "label": "标识（创建后请勿更改）",
+          "widget": "string",
+          "pattern": [
+            "^[a-zA-Z0-9_-]+$",
+            "仅使用字母、数字、下划线和短横线"
+          ]
+        },
+        {
+          "name": "position",
+          "label": "显示顺序",
+          "widget": "number",
+          "value_type": "int",
+          "default": 0,
+          "min": 0
+        },
+        {
+          "name": "title",
+          "label": "名称 / 标题",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "string",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "string",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "summary",
+          "label": "摘要 / 简介",
+          "widget": "object",
+          "fields": [
+            {
+              "name": "zh",
+              "label": "中文",
+              "widget": "text",
+              "required": false
+            },
+            {
+              "name": "en",
+              "label": "English",
+              "widget": "text",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "category",
+          "label": "分类",
+          "widget": "select",
+          "options": [
+            "meeting",
+            "seminar"
+          ]
+        },
+        {
+          "name": "start",
+          "label": "开始时间（YYYY-MM-DDTHH:mm）",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "end",
+          "label": "结束时间（YYYY-MM-DDTHH:mm）",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "url",
+          "label": "网站 / 资源链接",
+          "widget": "string",
+          "required": false
+        },
+        {
+          "name": "video",
+          "label": "视频链接",
+          "widget": "string",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

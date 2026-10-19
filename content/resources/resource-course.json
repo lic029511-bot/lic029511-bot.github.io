@@ -1,0 +1,13 @@
+{
+  "id": "resource-course",
+  "position": 0,
+  "title": {
+    "zh": "课程名称待补充",
+    "en": "Course title to be added"
+  },
+  "summary": {
+    "zh": "在这里添加课程简介、教学资料和课程主页链接。",
+    "en": "Add the course description, teaching materials and course website."
+  },
+  "category": "course"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "resource-code",
+  "position": 1,
+  "title": {
+    "zh": "开源项目待补充",
+    "en": "Open-source project"
+  },
+  "summary": {
+    "zh": "添加你们的开源代码、工具或数据集链接。",
+    "en": "Add links to your open-source code, tools or datasets."
+  },
+  "category": "code"
+}

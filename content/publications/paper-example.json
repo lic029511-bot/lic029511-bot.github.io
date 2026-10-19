@@ -1,0 +1,16 @@
+{
+  "id": "paper-example",
+  "position": 0,
+  "title": {
+    "zh": "论文标题示例（待替换）",
+    "en": "Example publication title (replace me)"
+  },
+  "authors": "作者信息待补充 / Authors to be added",
+  "venue": "期刊 / 会议待补充 · Venue to be added",
+  "year": "2026",
+  "summary": {
+    "zh": "这里展示论文摘要。请在后台替换为真实论文，并添加 PDF 或论文页面链接。",
+    "en": "Add the abstract of your publication here. Replace this example and add a PDF or publication link."
+  },
+  "bibtex": ""
+}

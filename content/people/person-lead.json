@@ -1,0 +1,17 @@
+{
+  "id": "person-lead",
+  "position": 0,
+  "title": {
+    "zh": "负责人姓名待补充",
+    "en": "Principal investigator"
+  },
+  "summary": {
+    "zh": "研究方向与个人简介待补充",
+    "en": "Research interests and biography to be added"
+  },
+  "body": {
+    "zh": "请替换为真实的成员信息。",
+    "en": "Replace with real member information."
+  },
+  "role": "faculty"
+}

@@ -1,0 +1,34 @@
+export type Lang = 'zh' | 'en';
+export type Localized = { zh: string; en: string };
+export type Kind = 'site' | 'project' | 'person' | 'publication' | 'news' | 'resource' | 'event';
+export type Data = {
+  title: Localized; summary?: Localized; body?: Localized; category?: string;
+  topic?: Localized; focus?: Localized; heroImage?: string; affiliation?: Localized; tagline?: Localized; join?: Localized; address?: Localized;
+  email?: string; image?: string; url?: string; paper?: string; code?: string; video?: string;
+  authors?: string; venue?: string; year?: string; bibtex?: string; date?: string;
+  role?: string; memberIds?: string[]; paperIds?: string[]; start?: string; end?: string;
+};
+export type Entry = { id: string; kind: Kind; data: Data; liveData: Data | null; position: number; livePosition?: number; revision: number; updatedAt: string; publishedAt: string | null };
+export const kinds: Kind[] = ['site','project','person','publication','news','resource','event'];
+export const kindLabels: Record<Kind, Localized> = {
+  site:{zh:'网站设置',en:'Site settings'},project:{zh:'研究项目',en:'Research'},person:{zh:'团队成员',en:'People'},publication:{zh:'论文成果',en:'Publications'},news:{zh:'新闻动态',en:'News'},resource:{zh:'课程与资源',en:'Resources'},event:{zh:'日历与讲座',en:'Events'}
+};
+export const tx = (value: Localized | undefined, lang: Lang) => value?.[lang] || value?.[lang === 'zh' ? 'en' : 'zh'] || '';
+export const local = (zh: string, en: string): Localized => ({zh,en});
+export function blank(kind: Kind): Data { return { title:local('',''), summary:local('',''),body:local('',''),category:kind === 'resource' ? 'code' : kind === 'event' ? 'meeting' : 'robotics',role:'phd',memberIds:[],paperIds:[] }; }
+export const categoryLabels: Record<string,Localized> = {robotics:local('机器人与控制','Robotics & control'),autonomy:local('自主系统与学习','Autonomy & learning'),space:local('空间探索','Space exploration'),faculty:local('教师','Faculty'),postdoc:local('博士后','Postdoctoral researchers'),phd:local('博士生','PhD students'),masters:local('硕士生','Master’s students'),undergraduate:local('本科生','Undergraduate students'),alumni:local('毕业成员','Alumni'),course:local('课程','Course'),code:local('开源代码','Open source'),dataset:local('数据集','Dataset'),meeting:local('组会','Lab meeting'),seminar:local('学术讲座','Seminar')};
+const now = '2026-10-16T00:00:00Z';
+function sample(id:string,kind:Kind,data:Data,position:number):Entry { return {id,kind,data,liveData:data,position,livePosition:position,revision:0,updatedAt:now,publishedAt:now}; }
+export const initialEntries: Entry[] = [
+  sample('site','site',{title:local('实验室名称待定','Your Research Lab'),focus:local('机器人 · 自主系统 · 空间探索','ROBOTICS · AUTONOMY · SPACE'),affiliation:local('所属学校 / 机构待补充','YOUR UNIVERSITY / INSTITUTION'),tagline:local('探索未知，\n让智能走向真实世界。','Exploring what’s next.\nBuilding what’s possible.'),summary:local('在这里介绍实验室的研究使命。我们关注机器人、自主系统与空间探索，连接基础研究与真实世界的挑战。','Introduce your research mission here. Explore robotics, autonomous systems and space exploration, connecting fundamental research with real-world challenges.'),body:local('用一段简洁的文字介绍你的实验室、研究方法以及希望解决的问题。这里的内容可以在管理后台随时修改。','Describe your lab, its approach, and the questions you want to answer. All content can be updated in the administration area.'),join:local('我们期待对研究充满好奇的同学与合作伙伴。请在后台补充招生方向、申请要求、开放职位以及联系邮箱。','We welcome curious students and collaborators. Add research opportunities, application requirements, open positions and a contact email in the administration area.'),address:local('办公地址待补充','Address to be added'),email:''},0),
+  sample('project-motion','project',{title:local('机器人运动规划与控制','Robot motion planning & control'),summary:local('示例研究方向：让机器人在复杂环境中可靠地运动、交互与操作。','Example research area: reliable robot locomotion, interaction and manipulation in complex environments.'),body:local('这是一个可替换的项目示例。\n\n在这里介绍研究背景、关键问题、技术方法与实验结果。你可以上传项目封面，并关联成员、论文、代码与视频。','This is an editable example project.\n\nIntroduce the motivation, research questions, methods and results. Upload a cover image and connect the project to people, publications, code and videos.'),category:'robotics',memberIds:['person-lead'],paperIds:['paper-example']},0),
+  sample('project-learning','project',{title:local('自主系统与智能学习','Autonomous systems & learning'),summary:local('示例研究方向：融合感知、学习与决策，探索自主系统的能力边界。','Example research area: connecting perception, learning and decision-making for autonomous systems.'),body:local('项目内容待补充。可在后台录入中英文介绍、项目成果与外部资源。','Project description to be added. Add bilingual content, results and external resources in the administration area.'),category:'autonomy',memberIds:[],paperIds:[]},1),
+  sample('project-space','project',{title:local('空间系统与探索','Space systems & exploration'),summary:local('示例研究方向：面向空间任务的导航、轨迹优化与自主控制。','Example research area: navigation, trajectory optimization and autonomous control for space missions.'),body:local('项目内容待补充。这一示例可以替换为你们的实际研究方向。','Project description to be added. Replace this example with your own research.'),category:'space',memberIds:[],paperIds:[]},2),
+  sample('person-lead','person',{title:local('负责人姓名待补充','Principal investigator'),summary:local('研究方向与个人简介待补充','Research interests and biography to be added'),body:local('请替换为真实的成员信息。','Replace with real member information.'),role:'faculty'},0),
+  sample('person-student','person',{title:local('成员姓名待补充','Team member'),summary:local('研究方向待补充','Research interests to be added'),role:'phd'},1),
+  sample('paper-example','publication',{title:local('论文标题示例（待替换）','Example publication title (replace me)'),authors:'作者信息待补充 / Authors to be added',venue:'期刊 / 会议待补充 · Venue to be added',year:'2026',summary:local('这里展示论文摘要。请在后台替换为真实论文，并添加 PDF 或论文页面链接。','Add the abstract of your publication here. Replace this example and add a PDF or publication link.'),bibtex:''},0),
+  sample('news-welcome','news',{title:local('欢迎来到我们的实验室网站','Welcome to our lab website'),summary:local('这是一条示例动态。你可以在后台发布研究进展、论文录用或团队新闻。','This is an example update. Share research progress, publications and lab news from the administration area.'),body:local('网站已准备好承载你们自己的故事。请在管理后台替换实验室名称、研究项目与团队资料。','The website is ready for your own story. Replace the lab name, projects and team information in the administration area.'),date:'2026-10-16'},0),
+  sample('resource-course','resource',{title:local('课程名称待补充','Course title to be added'),summary:local('在这里添加课程简介、教学资料和课程主页链接。','Add the course description, teaching materials and course website.'),category:'course'},0),
+  sample('resource-code','resource',{title:local('开源项目待补充','Open-source project'),summary:local('添加你们的开源代码、工具或数据集链接。','Add links to your open-source code, tools or datasets.'),category:'code'},1),
+  sample('event-example','event',{title:local('组会安排示例（待替换）','Example lab meeting (replace me)'),summary:local('在后台设置真实日期、地点或线上会议链接。','Set the actual date, venue or online meeting link in the administration area.'),category:'meeting',start:'',end:''},0),
+];

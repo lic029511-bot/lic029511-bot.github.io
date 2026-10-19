@@ -1,0 +1,15 @@
+{
+  "id": "event-example",
+  "position": 0,
+  "title": {
+    "zh": "组会安排示例（待替换）",
+    "en": "Example lab meeting (replace me)"
+  },
+  "summary": {
+    "zh": "在后台设置真实日期、地点或线上会议链接。",
+    "en": "Set the actual date, venue or online meeting link in the administration area."
+  },
+  "category": "meeting",
+  "start": "",
+  "end": ""
+}

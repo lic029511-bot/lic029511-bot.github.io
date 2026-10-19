@@ -1,0 +1,17 @@
+{
+  "id": "news-welcome",
+  "position": 0,
+  "title": {
+    "zh": "欢迎来到我们的实验室网站",
+    "en": "Welcome to our lab website"
+  },
+  "summary": {
+    "zh": "这是一条示例动态。你可以在后台发布研究进展、论文录用或团队新闻。",
+    "en": "This is an example update. Share research progress, publications and lab news from the administration area."
+  },
+  "body": {
+    "zh": "网站已准备好承载你们自己的故事。请在管理后台替换实验室名称、研究项目与团队资料。",
+    "en": "The website is ready for your own story. Replace the lab name, projects and team information in the administration area."
+  },
+  "date": "2026-10-16"
+}

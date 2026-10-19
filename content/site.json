@@ -1,0 +1,35 @@
+{
+  "title": {
+    "zh": "实验室名称待定",
+    "en": "Your Research Lab"
+  },
+  "focus": {
+    "zh": "机器人 · 自主系统 · 空间探索",
+    "en": "ROBOTICS · AUTONOMY · SPACE"
+  },
+  "affiliation": {
+    "zh": "所属学校 / 机构待补充",
+    "en": "YOUR UNIVERSITY / INSTITUTION"
+  },
+  "tagline": {
+    "zh": "探索未知，\n让智能走向真实世界。",
+    "en": "Exploring what’s next.\nBuilding what’s possible."
+  },
+  "summary": {
+    "zh": "在这里介绍实验室的研究使命。我们关注机器人、自主系统与空间探索，连接基础研究与真实世界的挑战。",
+    "en": "Introduce your research mission here. Explore robotics, autonomous systems and space exploration, connecting fundamental research with real-world challenges."
+  },
+  "body": {
+    "zh": "用一段简洁的文字介绍你的实验室、研究方法以及希望解决的问题。这里的内容可以在管理后台随时修改。",
+    "en": "Describe your lab, its approach, and the questions you want to answer. All content can be updated in the administration area."
+  },
+  "join": {
+    "zh": "我们期待对研究充满好奇的同学与合作伙伴。请在后台补充招生方向、申请要求、开放职位以及联系邮箱。",
+    "en": "We welcome curious students and collaborators. Add research opportunities, application requirements, open positions and a contact email in the administration area."
+  },
+  "address": {
+    "zh": "办公地址待补充",
+    "en": "Address to be added"
+  },
+  "email": ""
+}

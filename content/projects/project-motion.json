@@ -1,0 +1,23 @@
+{
+  "id": "project-motion",
+  "position": 0,
+  "title": {
+    "zh": "机器人运动规划与控制",
+    "en": "Robot motion planning & control"
+  },
+  "summary": {
+    "zh": "示例研究方向：让机器人在复杂环境中可靠地运动、交互与操作。",
+    "en": "Example research area: reliable robot locomotion, interaction and manipulation in complex environments."
+  },
+  "body": {
+    "zh": "这是一个可替换的项目示例。\n\n在这里介绍研究背景、关键问题、技术方法与实验结果。你可以上传项目封面，并关联成员、论文、代码与视频。",
+    "en": "This is an editable example project.\n\nIntroduce the motivation, research questions, methods and results. Upload a cover image and connect the project to people, publications, code and videos."
+  },
+  "category": "robotics",
+  "memberIds": [
+    "person-lead"
+  ],
+  "paperIds": [
+    "paper-example"
+  ]
+}

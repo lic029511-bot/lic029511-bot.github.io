@@ -1,0 +1,19 @@
+{
+  "id": "project-space",
+  "position": 2,
+  "title": {
+    "zh": "空间系统与探索",
+    "en": "Space systems & exploration"
+  },
+  "summary": {
+    "zh": "示例研究方向：面向空间任务的导航、轨迹优化与自主控制。",
+    "en": "Example research area: navigation, trajectory optimization and autonomous control for space missions."
+  },
+  "body": {
+    "zh": "项目内容待补充。这一示例可以替换为你们的实际研究方向。",
+    "en": "Project description to be added. Replace this example with your own research."
+  },
+  "category": "space",
+  "memberIds": [],
+  "paperIds": []
+}

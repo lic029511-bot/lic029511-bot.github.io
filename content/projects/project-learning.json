@@ -1,0 +1,19 @@
+{
+  "id": "project-learning",
+  "position": 1,
+  "title": {
+    "zh": "自主系统与智能学习",
+    "en": "Autonomous systems & learning"
+  },
+  "summary": {
+    "zh": "示例研究方向：融合感知、学习与决策，探索自主系统的能力边界。",
+    "en": "Example research area: connecting perception, learning and decision-making for autonomous systems."
+  },
+  "body": {
+    "zh": "项目内容待补充。可在后台录入中英文介绍、项目成果与外部资源。",
+    "en": "Project description to be added. Add bilingual content, results and external resources in the administration area."
+  },
+  "category": "autonomy",
+  "memberIds": [],
+  "paperIds": []
+}

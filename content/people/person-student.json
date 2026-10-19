@@ -1,0 +1,13 @@
+{
+  "id": "person-student",
+  "position": 1,
+  "title": {
+    "zh": "成员姓名待补充",
+    "en": "Team member"
+  },
+  "summary": {
+    "zh": "研究方向待补充",
+    "en": "Research interests to be added"
+  },
+  "role": "phd"
+}
